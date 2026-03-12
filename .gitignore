@@ -1,0 +1,37 @@
+# ===== FICHIERS SENSIBLES (NE JAMAIS PUBLIER) =====
+.env
+.env.backup
+*.key
+storage/oauth-private.key
+storage/oauth-public.key
+storage/logs/*.log
+
+# ===== DOSSIERS GÉNÉRÉS / CACHE =====
+/vendor
+/node_modules
+public/storage
+public/hot
+bootstrap/cache/*
+!.gitkeep
+storage/framework/cache/*
+storage/framework/sessions/*
+storage/framework/views/*
+storage/app/public/*
+
+# ===== FICHIERS SYSTÈME / IDE =====
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ===== MODÈLES IA LOCAUX (OLLAMA) =====
+# Les modèles pèsent plusieurs Go, ne pas commiter
+ollama_models/
+models/
+*.gguf
+
+# ===== ENVIRONNEMENT =====
+# On garde .env.example pour aider les autres, mais pas .env réel
+!.env.example
