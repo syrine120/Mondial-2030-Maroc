@@ -1,59 +1,384 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+================================================================================
+        MONDIAL 2030 MAROC - GUIDE INTERACTIF
+================================================================================
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+DESCRIPTION DU PROJET
+---------------------
+Application web interactive créée avec Laravel pour guider les visiteurs 
+à travers les 6 villes hôtes de la Coupe du Monde 2030 au Maroc.
 
-## About Laravel
+Le site offre une carte interactive avec des informations détaillées sur 
+chaque ville : matchs, hôtels, restaurants, lieux touristiques, pharmacies, 
+urgences, Airbnbs et stades.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Les utilisateurs peuvent créer un compte pour recevoir des notifications 
+sur les mises à jour et les nouveaux matchs, et s'abonner à la newsletter.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+VILLES INCLUSES
+---------------
+1. Casablanca - Capitale économique et hôte du match d'ouverture
+2. Rabat - Capitale du Royaume et ville de la finale
+3. Marrakech - Ville ocre, ambiance festive
+4. Agadir - Perle du sud, stades modernes
+5. Tanger - Porte nord-africaine
+6. Fès - Capitale spirituelle
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+FONCTIONNALITÉS PRINCIPALES
+----------------------------
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+1. CARTE INTERACTIVE
+   - Carte Leaflet avec pins cliquables pour chaque ville
+   - Popups avec informations détaillées
+   - Météo en temps réel (OpenWeatherMap API)
+   - Compteurs dynamiques (nombre de matchs, hôtels, etc.)
 
-## Laravel Sponsors
+2. SYSTÈME D'AUTHENTIFICATION
+   - Inscription et connexion utilisateur
+   - Gestion sécurisée des mots de passe
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+3. NOTIFICATIONS ET NEWSLETTER
+   - Notifications en temps réel pour les nouveaux matchs
+   - Alertes sur les mises à jour importantes
+   - Abonnement à la newsletter
+   - Recevoir des informations exclusives sur le Mondial 2030
 
-### Premium Partners
+4. TRADUCTION MULTILINGUE
+   - Widget Google Translate intégré dans le footer
+   - Support de 12+ langues (Anglais, Espagnol, Arabe, Allemand, 
+     Italien, Portugais, Chinois, Japonais, Russe, Néerlandais, 
+     Turc, Coréen)
+   - Interface élégante avec animations
+   - 100% gratuit et illimité
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+5. PAGES DE RESSOURCES
+   - Matchs : Calendrier avec dates et équipes
+   - Hôtels : Liste des hébergements avec prix
+   - Restaurants : Suggestions par type de cuisine
+   - Endroits : Lieux touristiques
+   - Pharmacies : Liste par ville
+   - Urgences : Contacts d'urgence
+   - Airbnbs : Options de location
+   - Stades : Informations détaillées
 
-## Contributing
+6. CONVERTISSEUR DE DEVISES
+   - Conversion en temps réel
+   - Support de plusieurs devises internationales
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+7. DESIGN RESPONSIVE
+   - Interface moderne compatible mobile, tablette et desktop
+   - Couleurs du drapeau marocain (rouge et vert)
+   - Emojis pour navigation intuitive
+   - Animations et effets hover
 
-## Code of Conduct
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+TECHNOLOGIES UTILISÉES
+----------------------
 
-## Security Vulnerabilities
+Backend:
+- Laravel (Framework PHP, version 12 ou supérieure)
+- PHP (version 8.0 ou supérieure)
+- MySQL (Base de données)
+- Laravel Breeze (Système d'authentification)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Frontend:
+- Blade (Moteur de templates Laravel)
+- Bootstrap 5.3 (Framework CSS)
+- Leaflet (Bibliothèque de cartes interactives)
+- JavaScript Vanilla
 
-## License
+APIs Externes:
+- Google Translate API (Widget gratuit)
+- OpenWeatherMap API (Données météo)
+- Leaflet / OpenStreetMap (Cartes géographiques)
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+INSTALLATION
+------------
+
+PRÉREQUIS:
+- PHP >= 8.0
+- Composer
+- MySQL/MariaDB
+- Node.js et NPM
+
+ÉTAPES:
+
+1. Cloner le repository avec git clone
+   cd mondial2030maroc
+
+2. Installer les dépendances PHP
+   composer install
+
+3. Installer les dépendances Node.js
+   npm install
+
+4. Créer le fichier .env
+   cp .env.example .env
+
+5. Configurer la base de données dans .env:
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=mondial2030maroc2
+   DB_USERNAME=root
+   DB_PASSWORD=
+
+6. Configurer l'email (pour notifications et newsletter) dans .env:
+   MAIL_MAILER=smtp
+   MAIL_HOST=smtp.mailtrap.io
+   MAIL_PORT=2525
+   MAIL_USERNAME=votre_username
+   MAIL_PASSWORD=votre_password
+   MAIL_ENCRYPTION=tls
+   MAIL_FROM_ADDRESS=noreply@mondial2030.ma
+   MAIL_FROM_NAME="Mondial 2030 Maroc"
+
+7. Générer la clé d'application
+   php artisan key:generate
+
+8. Créer la base de données "mondial_2030" dans MySQL
+
+9. Exécuter les migrations
+   php artisan migrate
+
+10. Peupler la base de données (optionnel)
+    php artisan db:seed
+
+11. Compiler les assets
+    npm run dev
+
+12. Lancer le serveur
+    php artisan serve
+
+Le site sera accessible à: http://127.0.0.1:8000
+
+
+CONFIGURATION DES APIs
+----------------------
+
+API MÉTÉO (OpenWeatherMap):
+1. Créer un compte gratuit sur: https://openweathermap.org/api
+2. Obtenir votre clé API gratuite
+3. Ajouter dans .env API KEY
+
+GOOGLE TRANSLATE:
+Aucune configuration requise! Le widget est déjà intégré et 100% gratuit.
+
+CONFIGURATION EMAIL (pour notifications):
+1. Pour développement, utiliser Mailtrap: https://mailtrap.io
+2. Créer un compte gratuit
+3. Copier les identifiants SMTP dans .env
+4. Pour production, utiliser un service comme SendGrid, Mailgun, ou AWS SES
+
+
+STRUCTURE DU PROJET "DOSSIER ET FICHIERS LES PLUS IMPORTANTS"
+mondial2030maroc/
+├── app/
+│   ├── Http/Controllers/     (Contrôleurs)
+│   ├── Models/               (Modèles Eloquent)
+│   ├── Notifications/        (Notifications email)
+│   └── Services/             (Services API météo, etc.)
+├── database/
+│   ├── migrations/           (Migrations de base de données)
+│   └── seeders/              (Données de test)
+├── public/                   (Assets publics)
+├── resources/
+│   └── views/
+│       ├── auth/             (Pages login/register)
+│       ├── layouts/
+│       │   └── app.blade.php (Template principal)
+│       ├── index.blade.php   (Page carte interactive)
+│       └── [autres pages]    (Pages des ressources)
+├── routes/
+│   └── web.php               (Routes de l'application)
+├── .env                      (Configuration)
+└── README.txt                (Ce fichier)
+
+
+UTILISATION
+-----------
+
+INSCRIPTION ET CONNEXION:
+1. Cliquer sur "Connexion" ou "S'inscrire" dans le footer
+2. Créer un compte avec nom, email et mot de passe
+3. Confirmer votre email (si configuré)
+4. Se connecter pour accéder aux fonctionnalités membres
+
+RECEVOIR DES NOTIFICATIONS:
+1. Se connecter à votre compte
+2. Activer les notifications dans les paramètres
+3. Recevoir des alertes pour:
+   - Nouveaux matchs ajoutés
+   - Mises à jour importantes
+
+ABONNEMENT À LA NEWSLETTER:
+1. Cliquer sur "S'abonner à la newsletter" dans le footer
+2. Entrer votre adresse email
+3. Confirmer l'abonnement
+4. Recevoir des newsletters hebdomadaires avec:
+   - Actualités du Mondial 2030
+   - Conseils de voyage au Maroc
+   - Offres exclusives
+   - Informations sur les villes hôtes
+
+NAVIGATION:
+1. Page d'accueil: Accéder à la carte interactive
+2. Cliquer sur un pin pour voir les détails d'une ville
+3. Popup interactif avec météo et compteurs en temps réel
+4. Boutons de navigation vers les différentes ressources
+
+TRADUCTION:
+1. Scroller jusqu'au footer (zone verte)
+2. Cliquer sur le sélecteur de langue (icône globe)
+3. Choisir votre langue préférée
+4. Le site se traduit automatiquement
+
+FILTRAGE PAR VILLE:
+- Utiliser la barre de navigation en haut
+- Chaque section affiche toutes les informations
+- Les popups montrent juste un résumé
+- Exemple: Cliquer sur "Hôtels" dans Casablanca pour voir 
+  uniquement les hôtels de Casablanca
+
+
+COMMANDES UTILES
+----------------
+
+Vider le cache:
+  php artisan cache:clear
+  php artisan config:clear
+  php artisan route:clear
+  php artisan view:clear
+
+Tout vider en une commande:
+  php artisan optimize:clear
+
+Créer un contrôleur:
+  php artisan make:controller NomController
+
+Créer un modèle avec migration:
+  php artisan make:model NomModele -m
+
+Créer une notification:
+  php artisan make:notification NomNotification
+
+Envoyer des emails de test:
+  php artisan tinker
+  >>> Mail::raw('Test email', function($msg) { $msg->to('test@test.com')->subject('Test'); });
+
+
+PROBLÈMES COURANTS
+------------------
+
+Le serveur ne démarre pas:
+- Vérifier que le port 8000 n'est pas déjà utilisé
+- Essayer: php artisan serve --port=8080
+
+Erreurs de base de données:
+- Vérifier les identifiants dans .env
+- S'assurer que MySQL est démarré
+
+La traduction ne fonctionne pas:
+- Vider le cache: php artisan view:clear
+- Recharger la page avec Ctrl+Shift+R
+
+Les emails ne s'envoient pas:
+- Vérifier la configuration MAIL dans .env
+- Tester la connexion SMTP
+- Vérifier les logs dans storage/logs/laravel.log
+- Utiliser Mailtrap pour le développement
+
+Erreurs après login:
+- Vérifier que les migrations sont à jour: php artisan migrate
+- Vider le cache des sessions: php artisan cache:clear
+
+
+FONCTIONNALITÉS UTILISATEUR
+----------------------------
+
+COMPTE UTILISATEUR:
+- Création de compte sécurisée
+- Connexion/déconnexion
+
+NOTIFICATIONS:
+- Notifications en temps réel
+
+NEWSLETTER:
+- Abonnement simple
+- Désabonnement en un clic
+- Newsletters hebdomadaires
+- Contenu exclusif
+
+
+AMÉLIORATIONS FUTURES
+---------------------
+- Système de favoris pour hôtels et restaurants
+- Notifications push sur mobile
+- Système de réservation en ligne
+- Mode sombre/clair
+- Application mobile native
+- Chat en direct avec support
+- Avis et commentaires des utilisateurs
+- Galerie photos pour chaque ville
+- Intégration avec réseaux sociaux
+- Calendrier personnel des matchs favoris
+
+
+SÉCURITÉ
+--------
+- Mots de passe hashés avec bcrypt
+- Protection CSRF sur tous les formulaires
+- Validation des données côté serveur
+- Sessions sécurisées
+- Protection contre les injections SQL (Eloquent ORM)
+- Rate limiting sur les routes sensibles
+- Email verification (optionnel)
+
+
+AUTEURS
+-------
+- Sara El khamlichi
+- Sirine Kanboui
+- Soumaya Charouite
+
+PROFESSEUR/ENCADRANT
+--------------------
+- Madame Rachida Fissoune
+
+ÉTABLISSEMENT
+-------------
+- EMSI
+- Année académique: 2025-2026
+
+
+CONTACT
+-------
+Email: - kanboui.sirine@gmail.com
+       - saraelkhamlichi85@gmail.com
+       - charouitesoumaya@gmail.com
+
+GitHub: - syrine120
+        - souma-char-EMSI
+        - saaara-me
+
+
+REMERCIEMENTS
+-------------
+Nous tenons à remercier:
+- Madame Rachida Fissoune pour son encadrement
+- L'EMSI pour les ressources et le support
+- La communauté Laravel pour la documentation
+
+
+
+LICENCE
+-------
+Ce projet est un projet académique développé à des fins éducatives.
+Tous droits réservés © 2026 EMSI
+
+
+================================================================================
+Fait avec amour pour le Mondial 2030 au Maroc 🇲🇦⚽
+================================================================================
