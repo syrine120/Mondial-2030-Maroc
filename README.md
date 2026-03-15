@@ -174,6 +174,7 @@ CONFIGURATION EMAIL (pour notifications):
 
 
 STRUCTURE DU PROJET "DOSSIER ET FICHIERS LES PLUS IMPORTANTS"
+```
 mondial2030maroc/
 ├── app/
 │   ├── Http/Controllers/
@@ -194,6 +195,7 @@ mondial2030maroc/
 ├── .env
 └── README.md
 
+```
 
 UTILISATION
 -----------
