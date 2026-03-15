@@ -176,25 +176,23 @@ CONFIGURATION EMAIL (pour notifications):
 STRUCTURE DU PROJET "DOSSIER ET FICHIERS LES PLUS IMPORTANTS"
 mondial2030maroc/
 ├── app/
-│   ├── Http/Controllers/     (Contrôleurs)
-│   ├── Models/               (Modèles Eloquent)
-│   ├── Notifications/        (Notifications email)
-│   └── Services/             (Services API météo, etc.)
+│   ├── Http/Controllers/
+│   ├── Models/
+│   ├── Notifications/
+│   └── Services/
 ├── database/
-│   ├── migrations/           (Migrations de base de données)
-│   └── seeders/              (Données de test)
-├── public/                   (Assets publics)
+│   ├── migrations/
+│   └── seeders/
+├── public/
 ├── resources/
 │   └── views/
-│       ├── auth/             (Pages login/register)
+│       ├── auth/
 │       ├── layouts/
-│       │   └── app.blade.php (Template principal)
-│       ├── index.blade.php   (Page carte interactive)
-│       └── [autres pages]    (Pages des ressources)
+│       └── index.blade.php
 ├── routes/
-│   └── web.php               (Routes de l'application)
-├── .env                      (Configuration)
-└── README.txt                (Ce fichier)
+│   └── web.php
+├── .env
+└── README.md
 
 
 UTILISATION
