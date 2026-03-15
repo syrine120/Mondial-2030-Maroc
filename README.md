@@ -180,7 +180,9 @@ CONFIGURATION EMAIL (pour notifications):
 2. Créer un compte gratuit
 3. Copier les identifiants SMTP dans .env
 4. Pour production, utiliser un service comme SendGrid, Mailgun, ou AWS SES
-### CONFIGURATION OLLAMA (CHATBOT IA):
+ 
+ CONFIGURATION OLLAMA (CHATBOT IA):
+----------------------
     PRÉREQUIS:
         Installer Ollama: https://ollama.com  
         Télécharger un modèle léger (recommandé pour le dev):
@@ -211,6 +213,7 @@ CONFIGURATION EMAIL (pour notifications):
         ❌ Problème CORS en dev → Ollama accepte localhost par défaut, pas de config supplémentaire
 
 STRUCTURE DU PROJET "DOSSIER ET FICHIERS LES PLUS IMPORTANTS"
+ 
 ```
 mondial2030maroc/
 ├── app/
