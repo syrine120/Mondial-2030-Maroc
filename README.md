@@ -71,7 +71,13 @@ FONCTIONNALITÉS PRINCIPALES
    - Couleurs du drapeau marocain (rouge et vert)
    - Emojis pour navigation intuitive
    - Animations et effets hover
-
+8.  ASSISTANT IA OLLAMA (CHATBOT)
+    -Chatbot intelligent intégré en bas à droite de l'écran
+    -Réponses en temps réel sur le Mondial 2030 au Maroc
+    -Informations sur : villes, stades, matchs, hôtels, transports, visas
+    -Support multilingue (hérite du widget Google Translate)
+    -Fonctionne en local via Ollama (respect de la vie privée)
+    -Modèles supportés : Llama 3, Mistral, Gemma (configurable)
 
 TECHNOLOGIES UTILISÉES
 ----------------------
@@ -81,6 +87,7 @@ Backend:
 - PHP (version 8.0 ou supérieure)
 - MySQL (Base de données)
 - Laravel Breeze (Système d'authentification)
+- Laravel Prompts / Simple AI Service Layer (pour l'intégration Ollama)
 
 Frontend:
 - Blade (Moteur de templates Laravel)
@@ -92,6 +99,8 @@ APIs Externes:
 - Google Translate API (Widget gratuit)
 - OpenWeatherMap API (Données météo)
 - Leaflet / OpenStreetMap (Cartes géographiques)
+- Ollama API (Chatbot IA en local)
+- Laravel HTTP Client (Communication avec Ollama)
 
 
 INSTALLATION
@@ -171,16 +180,46 @@ CONFIGURATION EMAIL (pour notifications):
 2. Créer un compte gratuit
 3. Copier les identifiants SMTP dans .env
 4. Pour production, utiliser un service comme SendGrid, Mailgun, ou AWS SES
-
+### CONFIGURATION OLLAMA (CHATBOT IA):
+    PRÉREQUIS:
+        Installer Ollama: https://ollama.com  
+        Télécharger un modèle léger (recommandé pour le dev):
+            ollama pull llama3.2      # ou mistral, gemma2:2b
+    
+    DÉMARRER OLLAMA:
+        # Terminal 1 : lancer le serveur Ollama
+        ollama serve
+    
+        # Terminal 2 : tester le modèle
+        ollama run llama3.2 "Bonjour, parle-moi du Mondial 2030 au Maroc"
+    
+    CONFIGURATION DANS .ENV:
+        # Ajoutez ces variables
+        OLLAMA_API_URL=http://127.0.0.1:11434
+        OLLAMA_MODEL=llama3.2
+        OLLAMA_TIMEOUT=120
+    
+    INTÉGRATION LARAVEL:
+        Le service est déjà configuré dans app/Services/OllamaService.php
+        Le contrôleur ChatbotController gère les requêtes AJAX
+        Le frontend utilise un composant Blade + JS vanilla dans resources/views/partials/chatbot.blade.php
+    
+    DÉPANNAGE:
+        ❌ "Connection refused" → Vérifier que `ollama serve` tourne
+        ❌ "Model not found" → Télécharger le modèle : `ollama pull llama3.2`
+        ❌ Réponses lentes → Utiliser un modèle plus petit (gemma2:2b) ou augmenter OLLAMA_TIMEOUT
+        ❌ Problème CORS en dev → Ollama accepte localhost par défaut, pas de config supplémentaire
 
 STRUCTURE DU PROJET "DOSSIER ET FICHIERS LES PLUS IMPORTANTS"
 ```
 mondial2030maroc/
 ├── app/
 │   ├── Http/Controllers/
+│   │   └── ChatbotController.php    # Gestion des requêtes IA
 │   ├── Models/
 │   ├── Notifications/
 │   └── Services/
+│       └── OllamaService.php        # Service de communication avec Ollama
 ├── database/
 │   ├── migrations/
 │   └── seeders/
@@ -189,9 +228,11 @@ mondial2030maroc/
 │   └── views/
 │       ├── auth/
 │       ├── layouts/
+│       ├── partials/
+│       │   └── chatbot.blade.php    # Composant widget chatbot
 │       └── index.blade.php
 ├── routes/
-│   └── web.php
+│   └── web.php                      # Route: POST /api/chatbot
 ├── .env
 └── README.md
 
@@ -267,7 +308,12 @@ Créer une notification:
 Envoyer des emails de test:
   php artisan tinker
   >>> Mail::raw('Test email', function($msg) { $msg->to('test@test.com')->subject('Test'); });
+Tester l'intégration Ollama
+php artisan tinker
+>>> app(\App\Services\OllamaService::class)->ask("Quelles sont les villes hôtes ?");
 
+Vérifier que le serveur Ollama répond
+curl http://127.0.0.1:11434/api/tags
 
 PROBLÈMES COURANTS
 ------------------
@@ -293,7 +339,12 @@ Les emails ne s'envoient pas:
 Erreurs après login:
 - Vérifier que les migrations sont à jour: php artisan migrate
 - Vider le cache des sessions: php artisan cache:clear
-
+Le chatbot ne répond pas:
+- Vérifier que Ollama tourne : `ollama serve`
+- Vérifier le modèle dans .env : `OLLAMA_MODEL=llama3.2`
+- Tester l'API directement : `curl http://127.0.0.1:11434/api/generate -d '{"model":"llama3.2","prompt":"test"}'`
+- Vérifier les logs Laravel : `tail -f storage/logs/laravel.log`
+- En production : s'assurer que le serveur peut accéder à l'URL OLLAMA_API_URL
 
 FONCTIONNALITÉS UTILISATEUR
 ----------------------------
@@ -324,6 +375,10 @@ AMÉLIORATIONS FUTURES
 - Galerie photos pour chaque ville
 - Intégration avec réseaux sociaux
 - Calendrier personnel des matchs favoris
+- [Chatbot] Mémoire de conversation par utilisateur
+- [Chatbot] Suggestions contextuelles basées sur la ville sélectionnée
+- [Chatbot] Mode "Guide touristique" vs "Infos pratiques"
+- [Chatbot] Export de la conversation en PDF
 
 
 SÉCURITÉ
